@@ -21,7 +21,8 @@ html {
 
 body {
     min-height: 100vh;
-    background: url('../img/main_background.png') center;
+    /* background: url('../img/main_background.png') center; */
+    background: url('../videos/main_background.mp4') center;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
