@@ -72,16 +72,19 @@ body {
     height: 90px;
 }
 
-.container .app-header .top-header h1 {
+.container .app-header .top-header a.title {
     position: absolute;
+    text-decoration: none;
     padding: 0.6rem;
+    color: var(--text-color);
+    font-size: 2rem;
     background-color: var(--secondary-hover-color);
     border-radius: 15px;
     top: 10%;
     left: 1.5rem;
 }
 
-.container .app-header .top-header a {
+.container .app-header .top-header .not-title a {
     display: block;
     position: absolute;
     top: 30%;
@@ -480,7 +483,7 @@ hr {
     .container .app-header .top-header {
         height: 60px;
     }
-    .container .app-header .top-header h1 {
+    .container .app-header .top-header a.title {
         font-size: 1.3rem;
         top: 7%;
     }
@@ -494,7 +497,7 @@ hr {
 }
 
 @media (max-width: 400px) {
-    .container .app-header .top-header h1 {
+    .container .app-header .top-header a.title {
         left: 0.5rem;
     }
     .container .app-header .top-header .active a {
