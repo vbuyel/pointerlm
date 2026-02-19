@@ -48,7 +48,10 @@ form.addEventListener('submit', async (e) => {
     try {
         const result = await fetch(`https://transudative-santo-hurtless.ngrok-free.dev/user/signup`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": "true"
+            },
             body: JSON.stringify({
                 "username": requiredElements[0].value,
                 "email": requiredElements[1].value,

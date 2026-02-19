@@ -32,7 +32,10 @@ form.addEventListener('submit', async (e) => {
 
     const response = await fetch(`https://transudative-santo-hurtless.ngrok-free.dev/user/login`, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "ngrok-skip-browser-warning": "true"
+        },
         body: new URLSearchParams({
             "username": requiredElements[0].value,
             "password": requiredElements[1].value
