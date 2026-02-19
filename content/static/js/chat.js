@@ -63,7 +63,8 @@ const generateResponse = async (modelMsgDiv) => {
         const response = await fetch(API_URL + `response/generate`, {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${token}`,
+                "ngrok-skip-browser-warning": "true"
             },
             body: formData,
             signal: controller.signal
