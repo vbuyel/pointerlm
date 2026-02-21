@@ -28,7 +28,8 @@ accountDataBtn.addEventListener("click", async () => {
         const response_user = await fetch(API_URL + `user/info`, {
             method: "GET",
             headers: {
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${token}`,
+                "ngrok-skip-browser-warning": "true"
             },
         });
 
@@ -37,6 +38,7 @@ accountDataBtn.addEventListener("click", async () => {
             window.location.href = "../../dynamic/html/login.html"
             return;
         }
+        console.log("[DEBUG] User info response:", response_user);
         const userData = await response_user.json();
         userNameInfo.textContent = `Username: ${userData.username}`;
         userEmailInfo.textContent = `Email: ${userData.email}`;
