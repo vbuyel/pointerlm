@@ -38,8 +38,17 @@ accountDataBtn.addEventListener("click", async () => {
             window.location.href = "../../dynamic/html/login.html"
             return;
         }
-        console.log("[DEBUG] User info response:", response_user);
-        const userData = await response_user.json();
+        const responseText = await response_user.text();
+        if (!responseText.trim()) {
+            throw new Error("User info response was empty");
+        }
+        let userData;
+        try {
+            userData = JSON.parse(responseText);
+        } catch (parseError) {
+            console.error("User info response was not valid JSON. Raw response:", responseText.slice(0, 200));
+            throw parseError;
+        }
         userNameInfo.textContent = `Username: ${userData.username}`;
         userEmailInfo.textContent = `Email: ${userData.email}`;
 
@@ -51,7 +60,14 @@ accountDataBtn.addEventListener("click", async () => {
             },
         });
 
-        const historyDataJson = await response_history.json();
+        const historyText = await response_history.text();
+        let historyDataJson;
+        try {
+            historyDataJson = historyText.trim() ? JSON.parse(historyText) : { history: [] };
+        } catch (parseError) {
+            console.error("History response was not valid JSON. Raw response:", historyText.slice(0, 200));
+            historyDataJson = { history: [] };
+        }
 
         for (let i = 0; i < historyDataJson.history.length; i++) {
             historyItems[i].textContent = historyDataJson.history[i];
