@@ -496,7 +496,7 @@ hr {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .container .app-header .top-header a.title {
         left: 0.5rem;
     }
